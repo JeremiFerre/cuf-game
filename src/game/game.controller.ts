@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { GameService } from './game.service';
 import { EndGameDto } from './endGame.dto';
 import { Score } from './score.entity';
@@ -9,6 +9,11 @@ export class GameController {
   constructor(
     private readonly gameService: GameService,
   ) {
+  }
+
+  @Get()
+  health(): string {
+    return 'hello';
   }
 
   @Post('start')
