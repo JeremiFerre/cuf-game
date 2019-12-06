@@ -13,6 +13,10 @@ export class ScoreService {
   ) {
   }
 
+  async getScores(): Promise<Score[]> {
+    return this.scoreRepository.find();
+  }
+
   async saveScore(game: Game, time: number): Promise<Score> {
     return this.scoreRepository.save({
       playerName: game.playerName,
